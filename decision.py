@@ -34,12 +34,14 @@ for m in range(M):
   ###################################################
   # MODIFY IN HERE TO DECREASE CORRELATION
   ###################################################
-
+  # idx = np.random.choice(len(X_train), len(X_train), replace=True)
+  # X_data = X_train[idx]
+  # y_data = y_train[idx]
   X_data = X_train
   y_data = y_train
 
-
   #Fit the model and store it's predictions
+  # clf = tree.DecisionTreeClassifier(criterion="entropy", max_features=10)
   clf = tree.DecisionTreeClassifier(criterion="entropy")
   clf = clf.fit(X_data, y_data)
   preds[:,m]= clf.predict(X_test)
@@ -69,4 +71,5 @@ plt.xticks(np.arange(0,M))
 plt.xlabel("Model ID")
 plt.ylabel("Model ID")
 plt.title("Prediction Correlation Between Models")
+# plt.savefig("Q3")
 plt.show()
